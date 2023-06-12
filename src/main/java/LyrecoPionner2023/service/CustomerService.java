@@ -10,9 +10,9 @@ public interface CustomerService {
 
     Optional<Customer> findCustomerById(Long id);
 
-    List<Customer> findAllCustomers();
+    List<Customer> customers();
 
-    Customer saveCustomer(Customer customer);
+    Customer createCustomer(Customer customer);
 
     Customer updateCustomer(Customer customer , Long id);
 

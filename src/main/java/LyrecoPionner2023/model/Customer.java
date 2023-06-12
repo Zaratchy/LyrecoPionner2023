@@ -27,7 +27,7 @@ public class Customer implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private int phone;
+    private String phone;
     private String email;
     private String civility;
     /*@ManyToOne

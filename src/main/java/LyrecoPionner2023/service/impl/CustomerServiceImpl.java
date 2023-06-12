@@ -7,7 +7,6 @@ import exception.CustomerNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,16 +31,16 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
-    private final List<Customer> customers = new ArrayList<>();
     @Override
-    public List<Customer> findAllCustomers() {
-        return customers;
+    public List<Customer> customers() {
+        return customerRepository.findAll();
+
 
     }
 
     @Override
-    public Customer saveCustomer(Customer customer) {
-        customers.add(customer);
+    public Customer createCustomer(Customer customer) {
+        customerRepository.save(customer);
         return customer;
     }
     @Override
