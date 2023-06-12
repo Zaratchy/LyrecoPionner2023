@@ -10,9 +10,6 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepository extends JpaRepository <Customer,Long> {
 
-    static List<Customer> findAllCustomers() {
-        return null;
-    }
 
     Optional<Customer> findById(Long id);
 

@@ -6,6 +6,7 @@ import LyrecoPionner2023.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,17 +26,18 @@ public class CustomerRestControler {
         return customerService.findCustomerById(id);
     }
 
-    @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public List<Customer> listCustomer() {
-        return CustomerRepository.findAllCustomers();
+    private final List<Customer> customers = new ArrayList<>();
+    @GetMapping
+    public List<Customer> findAllCustomers() {
+        return customers;
+
     }
 
-
-    @RequestMapping(value = "/customers", method = RequestMethod.POST)
-    public Customer findCustomer(@RequestBody Customer customer){
-        return customerService.saveCustomer(customer);
+    @PostMapping
+    public Customer saveCustomer(Customer customer) {
+        customers.add(customer);
+        return customer;
     }
-
     @RequestMapping(value = "/customers/{id}", method = RequestMethod.PUT)
     public Customer updateCustomer(@RequestBody Customer customer , @PathVariable("id") @NotNull Long id ){
         return customerService.updateCustomer(customer,id);
