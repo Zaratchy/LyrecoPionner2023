@@ -5,19 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
-import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
-
-import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableOpenApi

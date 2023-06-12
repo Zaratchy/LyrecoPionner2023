@@ -11,11 +11,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.BackendFicheReference</groupId>
-	<artifactId>BackendFicheReference</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>LyrecoPionner2023</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BackendFicheReference</name>
-	<description>Fiche reference backend</description>
+	<name>LyrecoPionner2023</name>
+	<description>Project for LyrecoPionner2023</description>
 	<packaging>jar</packaging>
 
 	<properties>
