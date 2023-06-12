@@ -2,7 +2,11 @@ package LyrecoPionner2023.model;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.VendorExtension;
@@ -10,35 +14,31 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Set;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
+@EnableOpenApi
 public class SwaggerConfig {
-
+    private static final Set<String> JSON_MEDIA_TYPE = Collections.singleton(MediaType.APPLICATION_JSON_VALUE);
     @Bean
-    public Docket atividadeApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.atividades.apirest"))
-                .paths(regex("/api.*"))
-                .build()
-                .apiInfo(metaInfo());
+    public Docket api() {
+        return new Docket (DocumentationType.OAS_30)
+                .consumes(JSON_MEDIA_TYPE)
+                .produces(JSON_MEDIA_TYPE)
+                .apiInfo(apiInfo()).select()
+                .paths(PathSelectors.any())
+                .build();
     }
 
-    private ApiInfo metaInfo() {
-
-        ApiInfo apiInfo = new ApiInfo(
-                "Atividades API REST",
-                "API REST de cadastro de atividades.",
-                "1.0",
-                "Terms of Service",
-                new Contact("João VR", "www.una.br/",
-                        " "),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
-        );
-
-        return apiInfo;
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder().title("Valarep REST APIs")
+                .description("MyApp APIs")
+                .license("Apache License Version 2.0")
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0.html")
+                .version("1.0.0")
+                .build();
     }
 }
