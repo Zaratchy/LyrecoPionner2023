@@ -32,7 +32,7 @@ public class CompanyRestControler {
     @RequestMapping(value = "/companys/create", method = RequestMethod.POST)
         public Company createCompany (@RequestBody Company company){ return companyService.createCompany(company);
         }
-    @RequestMapping(value = "/companys/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/company/{id}", method = RequestMethod.PUT)
         public Company updateCompany (@RequestBody Company company, @PathVariable("id") @NotNull Long id ){
             return companyService.updateCompany(company, id);
         }

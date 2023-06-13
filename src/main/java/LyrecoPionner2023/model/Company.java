@@ -31,8 +31,6 @@ public class Company implements Serializable {
     private int vat;
     private boolean rgpd;
 
-    public void setId(Long id) {
-    }
 
     /*@ManyToOne
     private Credential credential; */
