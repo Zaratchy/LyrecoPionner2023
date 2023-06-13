@@ -35,7 +35,6 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> customers() {
         return customerRepository.findAll();
 
-
     }
 
     @Override
