@@ -1,15 +1,14 @@
 package LyrecoPionner2023.repository;
 
-import LyrecoPionner2023.model.Customer;
+import LyrecoPionner2023.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface CustomerRepository extends JpaRepository <Customer,Long> {
+public interface CompanyRepository extends JpaRepository <Company,Long> {
 
-
-    Optional<Customer> findById(Long id);
+    Optional<Company> findById(Long id);
 
 }
