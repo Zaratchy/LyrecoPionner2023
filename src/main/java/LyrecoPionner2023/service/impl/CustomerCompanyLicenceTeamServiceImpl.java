@@ -4,6 +4,7 @@ import LyrecoPionner2023.model.CustomerCompanyLicenceTeam;
 import LyrecoPionner2023.model.pk.CustomerCompanyLicenceTeamPk;
 import LyrecoPionner2023.repository.CustomerCompanyLicenceTeamRepository;
 import LyrecoPionner2023.service.CustomerCompanyLicenceTeamService;
+import exception.CustomerCompanyLicenceTeamNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,12 +29,13 @@ public class CustomerCompanyLicenceTeamServiceImpl implements CustomerCompanyLic
         if (optionalCustomerCompanyLicenceTeam.isPresent()) {
             final CustomerCompanyLicenceTeam customerCompanyLicenceTeam = optionalCustomerCompanyLicenceTeam.get();
             return customerCompanyLicenceTeamRepository.findById(id);
+        } else {
+            throw  CustomerCompanyLicenceTeamNotFoundException.customerCompanyLicenceTeamNotFound();
         }
-        return optionalCustomerCompanyLicenceTeam;
     }
 
     @Override
-    public List<CustomerCompanyLicenceTeam> customerCompanyLicenceTeams() {
+    public List<CustomerCompanyLicenceTeam> listCustomerCompanyLicenceTeams() {
         return customerCompanyLicenceTeamRepository.findAll();
 
     }
@@ -44,9 +46,9 @@ public class CustomerCompanyLicenceTeamServiceImpl implements CustomerCompanyLic
         return customerCompanyLicenceTeam;
     }
     @Override
-    public CustomerCompanyLicenceTeam updateCustomerCompanyLicenceTeam(CustomerCompanyLicenceTeam customerCompanyLicenceTeam,CustomerCompanyLicenceTeamPk id) {
-        customerCompanyLicenceTeam.setId(id);
-        return  customerCompanyLicenceTeamRepository.save(customerCompanyLicenceTeam);
+    public CustomerCompanyLicenceTeam updateCustomerCompanyLicenceTeam(CustomerCompanyLicenceTeam customerCompanyLicenceTeam,CustomerCompanyLicenceTeamPk customerCompanyLicenceTeamPk) {
+        customerCompanyLicenceTeam.setId(customerCompanyLicenceTeamPk);
+        return customerCompanyLicenceTeamRepository.save(customerCompanyLicenceTeam);
     }
 
     @Transactional

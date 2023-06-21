@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class CustomerCompanyLicenceTeamNotFoundException extends Throwable {
+public class CustomerCompanyLicenceTeamNotFoundException extends RuntimeException {
 
     private static final String CUSTOMERCOMPANYLICENCETEAM_NOT_FOUND = "CustomerCompanyLicenceTeam not found";
     private static final String CUSTOMERCOMPANYLICENCETEAM_DELETED = "Your customerCompanyLicenceTeam is deleted";

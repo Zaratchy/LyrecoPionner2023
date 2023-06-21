@@ -13,4 +13,5 @@ public interface CustomerCompanyLicenceTeamRepository extends JpaRepository <Cus
     Optional<CustomerCompanyLicenceTeam> findById(CustomerCompanyLicenceTeamPk id);
 
 
+
 }

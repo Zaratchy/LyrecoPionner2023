@@ -1,11 +1,20 @@
 package LyrecoPionner2023.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import LyrecoPionner2023.model.pk.CustomerCompanyLicenceTeamPk;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Optional;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "CUSTOMERCOMPANYLICENCETEAM")
 public class CustomerCompanyLicenceTeam implements Serializable {
@@ -45,9 +54,6 @@ public class CustomerCompanyLicenceTeam implements Serializable {
         this.team =team;
     }
 
-    public CustomerCompanyLicenceTeam() {
-    }
-
 
     public CustomerCompanyLicenceTeamPk getId() {
         return id;
@@ -71,7 +77,7 @@ public class CustomerCompanyLicenceTeam implements Serializable {
         return company;
     }
 
-    public void setCompany(Company prestation) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
