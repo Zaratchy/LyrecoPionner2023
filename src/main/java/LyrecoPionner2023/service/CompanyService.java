@@ -1,7 +1,6 @@
 package LyrecoPionner2023.service;
 
 import LyrecoPionner2023.model.Company;
-import exception.CompanyNotFoundException;
 
 import java.util.List;
 import java.util.Optional;

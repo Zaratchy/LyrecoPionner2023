@@ -3,7 +3,6 @@ package LyrecoPionner2023.service.impl;
 import LyrecoPionner2023.model.Company;
 import LyrecoPionner2023.repository.CompanyRepository;
 import LyrecoPionner2023.service.CompanyService;
-import exception.CompanyNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
