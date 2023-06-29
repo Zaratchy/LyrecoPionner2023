@@ -46,7 +46,7 @@ public class CustomerSoftwareOrderLicenceRestControler {
     }
 
     /* add Modified */
-    @RequestMapping(value = "/update/{idCustomer}/{idCompany}/{idLicence}/{idTeam}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{idCustomer}/{idSoftware}/{idOrder}/{idLicence}", method = RequestMethod.PUT)
     public CustomerSoftwareOrderLicence updateCustomerSoftwareOrderLicence(@RequestBody CustomerSoftwareOrderLicence customerSoftwareOrderLicence,
                                                                        @PathVariable("idCustomer") @NotNull Long idCustomer,
                                                                        @PathVariable("idSoftware") @NotNull Long idSoftware,
