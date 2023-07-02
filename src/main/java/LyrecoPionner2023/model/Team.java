@@ -26,7 +26,4 @@ public class Team implements Serializable {
     private Long id;
     private String name;
 
-    /*@ManyToOne
-    private Credential credential; */
-
 }

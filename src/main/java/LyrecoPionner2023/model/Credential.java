@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,7 +26,8 @@ public class Credential {
     private Long id;
     private String password;
 
-    /*@ManyToOne
-    private Credential credential; */
+    @ManyToOne
+    private HistoCredential histoCredential;
+
 
 }

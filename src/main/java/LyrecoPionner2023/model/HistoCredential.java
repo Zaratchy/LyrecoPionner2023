@@ -25,7 +25,5 @@ public class HistoCredential {
     @GeneratedValue(generator = "SEQ_HISTOCREDENTIAL_ID", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    /*@ManyToOne
-    private Credential credential; */
 
 }

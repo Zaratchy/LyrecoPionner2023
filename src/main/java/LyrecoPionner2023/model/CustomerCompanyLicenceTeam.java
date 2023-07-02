@@ -9,7 +9,6 @@ import LyrecoPionner2023.model.pk.CustomerCompanyLicenceTeamPk;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Optional;
 
 @NoArgsConstructor
 @AllArgsConstructor

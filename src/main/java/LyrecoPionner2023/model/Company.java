@@ -31,9 +31,4 @@ public class Company implements Serializable {
     private int vat;
     private boolean rgpd;
 
-
-    /*@ManyToOne
-    private Credential credential; */
-
-
 }

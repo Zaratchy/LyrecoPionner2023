@@ -28,7 +28,5 @@ public class Licence implements Serializable {
     private int duration;
     private int number;
 
-    /*@ManyToOne
-    private Credential credential; */
 
 }

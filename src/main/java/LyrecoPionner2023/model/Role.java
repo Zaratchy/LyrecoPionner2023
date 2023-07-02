@@ -27,7 +27,5 @@ public class Role {
     private Long id;
     private String name;
 
-    /*@ManyToOne
-    private Credential credential; */
 
 }

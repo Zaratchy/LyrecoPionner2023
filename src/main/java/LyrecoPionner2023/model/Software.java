@@ -38,7 +38,4 @@ public class Software implements Serializable {
     private int idPrice;
     private int idLangage;
 
-    /*@ManyToOne
-    private Credential credential; */
-
 }

@@ -34,6 +34,9 @@ public class Customer implements Serializable {
     @ManyToOne
     private Role role;
 
+    @ManyToOne
+    private Credential credential;
+
 
 }
 

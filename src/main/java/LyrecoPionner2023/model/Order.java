@@ -28,8 +28,4 @@ public class Order implements Serializable {
     private Date date;
 
 
-    /*@ManyToOne
-    private Credential credential; */
-
-
 }
