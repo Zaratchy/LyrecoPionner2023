@@ -30,8 +30,9 @@ public class Customer implements Serializable {
     private String phone;
     private String email;
     private String civility;
-    /*@ManyToOne
-    private Credential credential; */
+
+    @ManyToOne
+    private Role role;
 
 
 }
