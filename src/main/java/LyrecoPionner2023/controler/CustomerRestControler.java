@@ -3,6 +3,7 @@ package LyrecoPionner2023.controler;
 import LyrecoPionner2023.model.Customer;
 import LyrecoPionner2023.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -15,6 +16,9 @@ public class CustomerRestControler {
 
     @Autowired
     private CustomerService customerService;
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    String password;
 
     public CustomerRestControler(CustomerService customerService) {
         this.customerService = customerService;
@@ -33,6 +37,7 @@ public class CustomerRestControler {
 
     @RequestMapping(value = "/customers/create", method = RequestMethod.POST)
     public Customer createCustomer(@RequestBody Customer customer){
+        customer.setPassword(passwordEncoder.encode((customer.getPassword())));
         return customerService.createCustomer(customer);
     }
     @RequestMapping(value = "/customers/{id}", method = RequestMethod.PUT)
@@ -44,6 +49,11 @@ public class CustomerRestControler {
     public Customer customer(@RequestBody Customer customer) {
         return customerService.deleteCustomer(customer);
     }
+/*
+    @RequestMapping(value = "/customers/login", method = RequestMethod.POST)
+    public Customer customer(@RequestBody new password) {
+        return customerService.deleteCustomer(customer);
+    }*/
 
 }
 
