@@ -10,6 +10,8 @@ public interface CustomerService {
 
     Optional<Customer> findCustomerById(Long id);
 
+    Customer login(String email);
+
     List<Customer> customers();
 
     Customer createCustomer(Customer customer);

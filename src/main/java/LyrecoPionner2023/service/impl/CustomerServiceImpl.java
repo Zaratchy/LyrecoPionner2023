@@ -31,6 +31,14 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
+    public Customer login(String email) {
+        Customer customer = this.customerRepository.findByEmail(email);
+        if (customer != null) {
+            return customer;
+        }
+        return null;
+    }
+
     @Override
     public List<Customer> customers() {
         return customerRepository.findAll();

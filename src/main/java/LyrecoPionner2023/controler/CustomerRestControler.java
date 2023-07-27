@@ -14,19 +14,45 @@ import java.util.Optional;
 @RestController
 public class CustomerRestControler {
 
+
+
+    private String email;
+    private String password;
+
+    // Getter for email
+    public String getEmail() {
+        return email;
+    }
+
+    // Setter for email
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // Getter for password
+    public String getPassword() {
+        return password;
+    }
+
+    // Setter for password
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
     @Autowired
     private CustomerService customerService;
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    String password;
 
     public CustomerRestControler(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     @GetMapping( "customer/{id}" )
-    public Optional<Customer> findCustomerById(@PathVariable("id") Long id
-    ){
+    public Optional<Customer> findCustomerById(@PathVariable("id") Long id)
+    {
         return customerService.findCustomerById(id);
     }
 
@@ -49,11 +75,18 @@ public class CustomerRestControler {
     public Customer customer(@RequestBody Customer customer) {
         return customerService.deleteCustomer(customer);
     }
-/*
-    @RequestMapping(value = "/customers/login", method = RequestMethod.POST)
-    public Customer customer(@RequestBody new password) {
-        return customerService.deleteCustomer(customer);
-    }*/
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Customer login(String email, String password ) {
+        Customer customerVerif = customerService.login(email);
+        Boolean isPasswordMatches = passwordEncoder.matches(password, customerVerif.getPassword());
+        if(customerVerif != null && isPasswordMatches == true){
+            return customerVerif;
+        } else {
+            return null;
+        }
+
+    }
 
 }
 
