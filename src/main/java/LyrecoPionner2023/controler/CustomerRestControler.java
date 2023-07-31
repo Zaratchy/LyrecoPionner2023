@@ -56,8 +56,11 @@ public class CustomerRestControler {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Customer login(@RequestBody CredentialLogin credentialLogin ) {
+        System.out.println(credentialLogin.password);
         Customer customerEmail = customerService.login(credentialLogin.email);
         if (customerEmail != null) {
+            System.out.println(credentialLogin.password);
+            System.out.println(customerEmail.getPassword());
             Boolean isPasswordMatches = passwordEncoder.matches(credentialLogin.password, customerEmail.getPassword());
             System.out.println(isPasswordMatches);
             if (isPasswordMatches) {
