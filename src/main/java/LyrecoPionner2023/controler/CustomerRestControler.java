@@ -14,32 +14,10 @@ import java.util.Optional;
 @RestController
 public class CustomerRestControler {
 
-
-
-    private String email;
-    private String password;
-
-    // Getter for email
-    public String getEmail() {
-        return email;
+    public static class CredentialLogin{
+        public String email;
+        public String password;
     }
-
-    // Setter for email
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    // Getter for password
-    public String getPassword() {
-        return password;
-    }
-
-    // Setter for password
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
 
     @Autowired
     private CustomerService customerService;
@@ -77,15 +55,16 @@ public class CustomerRestControler {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Customer login(String email, String password ) {
-        Customer customerVerif = customerService.login(email);
-        Boolean isPasswordMatches = passwordEncoder.matches(password, customerVerif.getPassword());
-        if(customerVerif != null && isPasswordMatches == true){
-            return customerVerif;
-        } else {
-            return null;
+    public Customer login(@RequestBody CredentialLogin credentialLogin ) {
+        Customer customerEmail = customerService.login(credentialLogin.email);
+        if (customerEmail != null) {
+            Boolean isPasswordMatches = passwordEncoder.matches(credentialLogin.password, customerEmail.getPassword());
+            System.out.println(isPasswordMatches);
+            if (isPasswordMatches) {
+                return customerEmail;
+            }
         }
-
+    return null;
     }
 
 }
