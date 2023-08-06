@@ -35,7 +35,7 @@ public class Software implements Serializable {
     private String secondDetail;
     private String screenOne;
     private String screentwo;
-    private int idPrice;
-    private int idLangage;
+    private String price;
+    private String langage;
 
 }
