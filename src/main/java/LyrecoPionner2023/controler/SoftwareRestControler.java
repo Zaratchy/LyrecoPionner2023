@@ -41,9 +41,10 @@ public class SoftwareRestControler {
         return softwareService.updateSoftware(software,id);
     }
 
-    @RequestMapping(value = "/softwares/delete", method = RequestMethod.DELETE)
-    public Software software(@RequestBody Software software) {
-        return softwareService.deleteSoftware(software);
+    @DeleteMapping(value = "/softwares/delete/{id}")
+    public Software deleteSoftware(@RequestBody Software software , @PathVariable Long id) {
+        return softwareService.deleteSoftware(software,id);
+
     }
 
 }

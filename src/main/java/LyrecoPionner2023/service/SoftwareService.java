@@ -14,7 +14,7 @@ public interface SoftwareService {
 
     Software updateSoftware(Software software , Long id);
 
-    Software deleteSoftware(Software software);
+    Software deleteSoftware(Software software, Long id);
 
 
 }

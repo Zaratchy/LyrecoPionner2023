@@ -50,10 +50,11 @@ public class SoftwareServiceImpl implements SoftwareService {
         return  softwareRepository.save(software);
     }
 
-    @Transactional
-    public Software deleteSoftware(Software software) {
+    @Override
+    public Software deleteSoftware(Software software, Long id) {
         softwareRepository.delete(software);
         return software;
     }
+
 
 }
