@@ -6,7 +6,6 @@ import LyrecoPionner2023.repository.SoftwareRepository;
 import LyrecoPionner2023.service.SoftwareService;
 import exception.SoftwareNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,8 +51,12 @@ public class SoftwareServiceImpl implements SoftwareService {
 
     @Override
     public Software deleteSoftware(Software software, Long id) {
-        softwareRepository.delete(software);
-        return software;
+        return null;
+    }
+
+    @Override
+    public void deleteSoftware(Long id) {
+        softwareRepository.deleteById(id);
     }
 
 

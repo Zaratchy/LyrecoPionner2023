@@ -4,6 +4,7 @@ package LyrecoPionner2023.controler;
 import LyrecoPionner2023.model.Software;
 import LyrecoPionner2023.service.SoftwareService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -36,15 +37,16 @@ public class SoftwareRestControler {
     public Software createSoftware(@RequestBody Software software){
         return softwareService.createSoftware(software);
     }
+
     @RequestMapping(value = "/softwares/{id}", method = RequestMethod.PUT)
     public Software updateSoftware(@RequestBody Software software , @PathVariable("id") @NotNull Long id ){
         return softwareService.updateSoftware(software,id);
     }
 
     @DeleteMapping(value = "/softwares/delete/{id}")
-    public Software deleteSoftware(@RequestBody Software software , @PathVariable Long id) {
-        return softwareService.deleteSoftware(software,id);
-
+    public ResponseEntity<String> deleteSoftware(@PathVariable Long id) {
+        softwareService.deleteSoftware(id);
+        return ResponseEntity.ok("Logiciel supprimé avec succès");
     }
 
 }
